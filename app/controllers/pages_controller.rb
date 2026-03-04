@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def services
   end
 
-  def process
+  def workflow_process
   end
 
   def case_studies

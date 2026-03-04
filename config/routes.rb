@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # Static pages
   get "/services", to: "pages#services"
-  get "/process", to: "pages#process"
+  get "/process", to: "pages#workflow_process"
   get "/case-studies", to: "pages#case_studies"
   get "/about", to: "pages#about"
   get "/quote", to: "pages#quote"
