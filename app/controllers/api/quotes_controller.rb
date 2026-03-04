@@ -8,6 +8,18 @@ class Api::QuotesController < ApplicationController
       return
     end
 
+    # Validate required fields
+    if params[:name].blank? || params[:email].blank? || params[:description].blank?
+      render json: { error: "Name, email, and description are required" }, status: :unprocessable_entity
+      return
+    end
+
+    # Validate email format
+    unless valid_email?(params[:email])
+      render json: { error: "Please enter a valid email address" }, status: :unprocessable_entity
+      return
+    end
+
     # Rate limiting (simple in-memory, use Redis in production)
     client_ip = request.remote_ip
     key = "rate_limit:#{client_ip}"
@@ -15,12 +27,6 @@ class Api::QuotesController < ApplicationController
 
     if current_count >= 5
       render json: { error: "Too many submissions. Please try again later." }, status: :too_many_requests
-      return
-    end
-
-    # Validate required fields
-    if params[:name].blank? || params[:email].blank? || params[:description].blank?
-      render json: { error: "Name, email, and description are required" }, status: :unprocessable_entity
       return
     end
 
@@ -33,6 +39,11 @@ class Api::QuotesController < ApplicationController
   end
 
   private
+
+  def valid_email?(email)
+    email_regex = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+    email_regex.match?(email.to_s.strip)
+  end
 
   def quote_params
     params.permit(:name, :email, :company, :website, :description, :budget, :timeline, :website_url)
