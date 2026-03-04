@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "/case-studies", to: "pages#case_studies"
   get "/about", to: "pages#about"
   get "/quote", to: "pages#quote"
+  get "/schedule", to: "pages#schedule"
 
   # API routes
   namespace :api do
