@@ -1,6 +1,6 @@
 <% content_for :title, "About Us | Jack SaaS" %>
 
-<section class="py-16 md:py-24 bg-slate-50">
+<section class="py-16 md:py-24 lg:py-32 bg-slate-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto">
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">About Jack SaaS</h1>
@@ -9,25 +9,25 @@
   </div>
 </section>
 
-<section class="py-16 md:py-24">
+<section class="py-16 md:py-24 lg:py-32">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
       <div class="relative">
         <div class="aspect-square rounded-2xl bg-blue-100 flex items-center justify-center">
           <div class="text-center p-8">
-            <div class="w-32 h-32 rounded-full bg-blue-200 flex items-center justify-center mx-auto mb-4">
-              <span class="text-5xl font-bold text-blue-700">J</span>
+            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-blue-200 flex items-center justify-center mx-auto mb-4">
+              <span class="text-5xl md:text-6xl font-bold text-blue-700">J</span>
             </div>
-            <p class="text-blue-700 font-medium">Jack Nielsen</p>
-            <p class="text-sm text-blue-600">Founder & Lead Developer</p>
+            <p class="text-blue-700 font-medium text-lg">Jack Nielsen</p>
+            <p class="text-blue-600">Founder & Lead Developer</p>
           </div>
         </div>
         <div class="absolute -z-10 -bottom-4 -right-4 w-full h-full rounded-2xl bg-blue-200"></div>
       </div>
       <div>
         <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-4">Our Story</span>
-        <h2 class="text-3xl font-bold text-slate-900 mb-4">From Frustration to Creation</h2>
-        <div class="space-y-4 text-slate-600">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">From Frustration to Creation</h2>
+        <div class="space-y-4 text-slate-600 text-lg">
           <p>Jack SaaS was born from a simple observation: too many businesses were drowning in manual processes that could be easily automated with the right software.</p>
           <p>After working with dozens of companies as a freelance developer, I saw the same patterns repeat—teams spending hours on data entry, struggling with disconnected tools, and missing opportunities to scale.</p>
           <p>In 2020, I founded Jack SaaS with a mission: to help businesses work smarter, not harder. Since then, we've helped 50+ companies automate their workflows.</p>
@@ -37,27 +37,32 @@
   </div>
 </section>
 
-<section class="py-16 md:py-24 bg-slate-50">
+<section class="py-16 md:py-24 lg:py-32 bg-slate-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold text-slate-900 mb-4">Our Mission</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Mission</h2>
       <p class="text-xl text-slate-600 max-w-2xl mx-auto">To empower businesses with custom software solutions that automate workflows, reduce manual work, and enable sustainable growth.</p>
     </div>
-    <div class="grid md:grid-cols-2 gap-6">
-      <% ["Innovation", "Partnership", "Quality", "Transparency"].each_with_index do |value, i| %>
-        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-          <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
-            <span class="text-2xl"><%= ["💡", "❤️", "🛡️", "👥"][i] %></span>
+    <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+      <% [
+        { title: "Innovation", desc: "We stay ahead of technology trends to deliver modern, scalable solutions.", icon: "💡" },
+        { title: "Partnership", desc: "We view every project as a partnership. Your success is our success.", icon: "❤️" },
+        { title: "Quality", desc: "We never compromise on code quality, security, or user experience.", icon: "🛡️" },
+        { title: "Transparency", desc: "Clear communication, honest timelines, and no hidden surprises.", icon: "👥" }
+      ].each do |value| %>
+        <div class="bg-white rounded-xl border border-slate-200 p-6 md:p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4 text-2xl">
+            <%= value[:icon] %>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2"><%= value %></h3>
-          <p class="text-slate-600">We <%= ["stay ahead of technology trends", "view every project as a partnership", "never compromise on quality", "communicate clearly and honestly"][i] %>.</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-2"><%= value[:title] %></h3>
+          <p class="text-slate-600"><%= value[:desc] %></p>
         </div>
       <% end %>
     </div>
   </div>
 </section>
 
-<section class="py-16 md:py-24 bg-blue-600">
+<section class="py-16 md:py-24 lg:py-32 bg-blue-600">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto">
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Work Together?</h2>

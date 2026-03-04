@@ -1,7 +1,7 @@
 <% content_for :title, "Jack SaaS - Custom Software Development" %>
 
 <%# Hero Section %>
-<section class="py-16 md:py-24 bg-slate-50">
+<section class="py-16 md:py-24 lg:py-32 bg-slate-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-4xl mx-auto">
       <p class="text-sm md:text-base font-semibold text-blue-600 uppercase tracking-wider mb-4">Custom SaaS Development</p>
@@ -38,9 +38,9 @@
 </section>
 
 <%# Social Proof Banner %>
-<section class="py-12 bg-white border-y border-slate-200">
+<section class="py-12 md:py-16 bg-white border-y border-slate-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-8">
+    <div class="text-center mb-8 md:mb-12">
       <p class="text-sm md:text-base font-semibold text-slate-500 uppercase tracking-wider">Trusted by innovative companies</p>
     </div>
     <div class="grid grid-cols-4 md:grid-cols-8 gap-6 md:gap-8 items-center justify-items-center">
@@ -56,13 +56,13 @@
 </section>
 
 <%# Services Preview %>
-<section class="py-16 md:py-24">
+<section class="py-16 md:py-24 lg:py-32">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
+    <div class="text-center mb-12 md:mb-16">
       <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Services</h2>
       <p class="text-lg text-slate-600 max-w-2xl mx-auto">Comprehensive SaaS development tailored to your business needs</p>
     </div>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
       <% services = [
         { title: "Workflow Automation", desc: "Eliminate manual tasks and streamline operations", icon: "⚙️", color: "blue" },
         { title: "Custom SaaS", desc: "End-to-end product development from scratch", icon: "☁️", color: "cyan" },
@@ -70,14 +70,14 @@
         { title: "Internal Tools", desc: "Empower your team with custom applications", icon: "🛠️", color: "green" }
       ] %>
       <% services.each do |service| %>
-        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+        <div class="bg-white rounded-xl border border-slate-200 p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
           <div class="text-3xl mb-4"><%= service[:icon] %></div>
           <h3 class="text-xl font-bold text-slate-900 mb-2"><%= service[:title] %></h3>
           <p class="text-slate-600"><%= service[:desc] %></p>
         </div>
       <% end %>
     </div>
-    <div class="text-center mt-10">
+    <div class="text-center mt-12 md:mt-16">
       <a href="/services" class="inline-flex items-center px-6 py-3 border-2 border-blue-600 text-blue-600 font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition-colors">
         View All Services
       </a>
@@ -86,7 +86,7 @@
 </section>
 
 <%# CTA Section %>
-<section class="py-16 md:py-24 bg-blue-600">
+<section class="py-16 md:py-24 lg:py-32 bg-blue-600">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto">
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Transform Your Business?</h2>
