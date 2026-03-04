@@ -1,0 +1,104 @@
+<% content_for :title, "Our Services | Jack SaaS" %>
+
+<%# Hero Section %>
+<section class="py-16 md:py-24 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">Our Services</h1>
+      <p class="text-lg md:text-xl text-slate-600">End-to-end software solutions that help businesses automate, scale, and succeed.</p>
+    </div>
+  </div>
+</section>
+
+<%# Services Grid %>
+<section class="py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 gap-8">
+      <%# Workflow Automation %>
+      <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-md">
+        <div class="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center mb-6">
+          <span class="text-2xl">⚙️</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Workflow Automation</h2>
+        <p class="text-slate-600 mb-6">Eliminate manual tasks and streamline your operations with intelligent automation. We identify repetitive processes and build custom solutions that save time and reduce errors.</p>
+        <ul class="space-y-3">
+          <% ["Automate data entry and document processing", "Set up approval workflows and notifications", "Integrate with existing tools and systems", "Monitor performance with analytics dashboards", "Reduce human error by up to 90%"].each do |item| %>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xs">✓</span>
+              <span class="text-slate-700"><%= item %></span>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <%# Custom SaaS Development %>
+      <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-md">
+        <div class="w-14 h-14 rounded-2xl bg-cyan-100 flex items-center justify-center mb-6">
+          <span class="text-2xl">☁️</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Custom SaaS Development</h2>
+        <p class="text-slate-600 mb-6">From concept to deployment, we build scalable software-as-a-service products tailored to your business model. Whether you're launching a new product or modernizing legacy systems.</p>
+        <ul class="space-y-3">
+          <% ["End-to-end product development", "Scalable cloud architecture", "User authentication and billing systems", "Multi-tenant database design", "Ongoing maintenance and support"].each do |item| %>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xs">✓</span>
+              <span class="text-slate-700"><%= item %></span>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <%# API Integrations %>
+      <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-md">
+        <div class="w-14 h-14 rounded-2xl bg-orange-100 flex items-center justify-center mb-6">
+          <span class="text-2xl">🔌</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">API Integrations</h2>
+        <p class="text-slate-600 mb-6">Connect your tools and break down data silos. We build robust integrations that keep information flowing between your CRM, ERP, marketing platforms, and custom applications.</p>
+        <ul class="space-y-3">
+          <% ["REST and GraphQL API development", "Third-party platform integrations", "Real-time data synchronization", "Webhook and event-driven architecture", "API documentation and monitoring"].each do |item| %>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xs">✓</span>
+              <span class="text-slate-700"><%= item %></span>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <%# Internal Tools %>
+      <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-md">
+        <div class="w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center mb-6">
+          <span class="text-2xl">🛠️</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Internal Tools</h2>
+        <p class="text-slate-600 mb-6">Empower your team with custom internal applications designed for your specific workflows. From admin dashboards to inventory management systems, we build tools that boost productivity.</p>
+        <ul class="space-y-3">
+          <% ["Custom admin dashboards", "Inventory and order management", "Employee portals and HR tools", "Reporting and analytics systems", "Mobile-friendly interfaces"].each do |item| %>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xs">✓</span>
+              <span class="text-slate-700"><%= item %></span>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# CTA Section %>
+<section class="py-16 md:py-24 bg-blue-600">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Not Sure What You Need?</h2>
+      <p class="text-lg text-blue-100 mb-8">Let's talk about your challenges and goals. We'll help you identify the right solution and create a roadmap for success.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/quote" class="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-slate-100 transition-colors">
+          Get a Free Quote
+        </a>
+        <a href="/schedule" class="inline-flex items-center px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
+          Schedule a Consultation
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,104 @@
+<% content_for :title, "Jack SaaS - Custom Software Development" %>
+
+<%# Hero Section %>
+<section class="py-16 md:py-24 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-4xl mx-auto">
+      <p class="text-sm md:text-base font-semibold text-blue-600 uppercase tracking-wider mb-4">Custom SaaS Development</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+        We Build Software That <span class="text-blue-600">Automates</span> Your Workflows
+      </h1>
+      <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10">
+        Custom SaaS solutions that save time, reduce costs, and help your business scale without adding headcount. From concept to deployment, we've got you covered.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="/quote" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+          Get a Quote
+        </a>
+        <a href="/case-studies" class="inline-flex items-center px-6 py-3 border-2 border-slate-900 text-slate-900 font-semibold rounded-lg hover:bg-slate-900 hover:text-white transition-colors">
+          View Our Work
+        </a>
+      </div>
+      <div class="mt-12 flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <span>Free Consultation</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <span>50+ Projects Delivered</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <span>98% Client Satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# Social Proof Banner %>
+<section class="py-12 bg-white border-y border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8">
+      <p class="text-sm md:text-base font-semibold text-slate-500 uppercase tracking-wider">Trusted by innovative companies</p>
+    </div>
+    <div class="grid grid-cols-4 md:grid-cols-8 gap-6 md:gap-8 items-center justify-items-center">
+      <% ["NH", "DT", "SF", "BL", "AR", "EE", "MC", "FN"].each_with_index do |initials, i| %>
+        <div class="flex flex-col items-center gap-2 group">
+          <div class="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-slate-100 flex items-center justify-center transition-all group-hover:bg-slate-200">
+            <span class="text-lg md:text-xl font-bold text-slate-400"><%= initials %></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<%# Services Preview %>
+<section class="py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Services</h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">Comprehensive SaaS development tailored to your business needs</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <% services = [
+        { title: "Workflow Automation", desc: "Eliminate manual tasks and streamline operations", icon: "⚙️", color: "blue" },
+        { title: "Custom SaaS", desc: "End-to-end product development from scratch", icon: "☁️", color: "cyan" },
+        { title: "API Integration", desc: "Connect your tools and break down data silos", icon: "🔌", color: "orange" },
+        { title: "Internal Tools", desc: "Empower your team with custom applications", icon: "🛠️", color: "green" }
+      ] %>
+      <% services.each do |service| %>
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4"><%= service[:icon] %></div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2"><%= service[:title] %></h3>
+          <p class="text-slate-600"><%= service[:desc] %></p>
+        </div>
+      <% end %>
+    </div>
+    <div class="text-center mt-10">
+      <a href="/services" class="inline-flex items-center px-6 py-3 border-2 border-blue-600 text-blue-600 font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition-colors">
+        View All Services
+      </a>
+    </div>
+  </div>
+</section>
+
+<%# CTA Section %>
+<section class="py-16 md:py-24 bg-blue-600">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Transform Your Business?</h2>
+      <p class="text-lg text-blue-100 mb-8">Let's discuss how custom software can automate your workflows, reduce costs, and help you scale.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/quote" class="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-slate-100 transition-colors">
+          Get a Free Quote
+        </a>
+        <a href="/process" class="inline-flex items-center px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
+          Learn Our Process
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

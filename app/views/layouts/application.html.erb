@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Jack SaaS - Custom Software Development" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Custom SaaS development services for businesses looking to automate internal workflows">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="font-sans antialiased bg-white text-slate-900">
+    <%= render(Layout::HeaderComponent.new) %>
+    
+    <main class="flex-grow">
+      <%= yield %>
+    </main>
+    
+    <%= render(Layout::FooterComponent.new) %>
+  </body>
+</html>
