@@ -13,4 +13,7 @@ class PagesController < ApplicationController
 
   def quote
   end
+
+  def schedule
+  end
 end
