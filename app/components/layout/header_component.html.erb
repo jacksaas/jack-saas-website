@@ -1,8 +1,8 @@
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200" data-controller="header">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 md:h-20">
       <%# Logo %>
-      <a href="/" class="flex items-center gap-2">
+      <a href="/" class="flex items-center gap-3 flex-shrink-0">
         <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center">
           <span class="text-lg font-bold text-white">J</span>
         </div>
@@ -10,44 +10,66 @@
       </a>
 
       <%# Desktop Navigation %>
-      <nav class="hidden md:flex items-center gap-8">
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2">
         <% nav_items.each do |item| %>
-          <a href="<%= item[:path] %>" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">
+          <% is_active = current_page?(item[:path]) || (item[:path] != "/" && request.path.start_with?(item[:path])) %>
+          <a href="<%= item[:path] %>" class="px-3 lg:px-4 py-2 text-sm font-medium rounded-lg transition-colors <%= is_active ? 'text-blue-600 bg-blue-50' : 'text-slate-600 hover:text-blue-600 hover:bg-slate-50' %>">
             <%= item[:name] %>
           </a>
         <% end %>
       </nav>
 
       <%# Desktop CTA %>
-      <div class="hidden md:block">
-        <a href="/quote" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+      <div class="hidden md:block flex-shrink-0">
+        <a href="/quote" class="inline-flex items-center px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-sm hover:shadow">
           Get a Quote
         </a>
       </div>
 
       <%# Mobile Menu Button %>
-      <button type="button" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100" data-controller="mobile-menu" data-action="click->mobile-menu#toggle">
-        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <button type="button" 
+              class="md:hidden relative p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
+              data-action="click->header#toggleMenu"
+              aria-label="Toggle menu"
+              aria-expanded="false"
+              data-header-target="menuButton">
+        <svg data-header-target="openIcon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg data-header-target="closeIcon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
         </svg>
       </button>
     </div>
   </div>
 
-  <%# Mobile Menu (hidden by default) %>
-  <div class="hidden md:hidden border-t border-slate-200" data-mobile-menu-target="menu">
-    <nav class="px-4 py-6 space-y-4 bg-white">
-      <% nav_items.each do |item| %>
-        <a href="<%= item[:path] %>" class="block py-2 text-lg font-medium text-slate-900 hover:text-blue-600">
-          <%= item[:name] %>
-        </a>
-      <% end %>
-      <div class="pt-4 border-t border-slate-200">
-        <a href="/quote" class="block w-full text-center px-4 py-3 bg-blue-600 text-white font-semibold rounded-lg">
-          Get a Quote
-        </a>
-      </div>
-    </nav>
+  <%# Mobile Menu Overlay %>
+  <div class="hidden md:hidden fixed inset-0 top-16 z-40" data-header-target="mobileMenu">
+    <%# Backdrop %>
+    <div class="absolute inset-0 bg-black/25 backdrop-blur-sm" data-action="click->header#closeMenu"></div>
+    
+    <%# Mobile Menu Panel %>
+    <div class="absolute top-0 left-0 right-0 bg-white border-b border-slate-200 shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto">
+      <nav class="px-4 py-4 space-y-1">
+        <% nav_items.each do |item| %>
+          <% is_active = current_page?(item[:path]) || (item[:path] != "/" && request.path.start_with?(item[:path])) %>
+          <a href="<%= item[:path] %>" 
+             class="block px-4 py-3 text-base font-medium rounded-lg transition-colors <%= is_active ? 'text-blue-600 bg-blue-50' : 'text-slate-900 hover:text-blue-600 hover:bg-slate-50' %>"
+             data-action="click->header#closeMenu">
+            <%= item[:name] %>
+          </a>
+        <% end %>
+        
+        <%# Mobile CTA %>
+        <div class="pt-3 mt-3 border-t border-slate-100">
+          <a href="/quote" 
+             class="block w-full text-center px-4 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+             data-action="click->header#closeMenu">
+            Get a Quote
+          </a>
+        </div>
+      </nav>
+    </div>
   </div>
 </header>
 
